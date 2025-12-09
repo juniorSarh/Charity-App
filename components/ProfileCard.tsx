@@ -1,20 +1,18 @@
+// components/ProfileCard.tsx
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
-interface ProfileCardProps {
+interface Props {
   name: string;
-  avatar: string; // URL or local require()
+  avatar: string;
   online?: boolean;
 }
 
-export default function ProfileCard({ name, avatar, online = true }: ProfileCardProps) {
+export default function ProfileCard({ name, avatar, online = true }: Props) {
   return (
     <View style={styles.card}>
       <View style={styles.avatarContainer}>
-        <Image
-          source={typeof avatar === "string" ? { uri: avatar } : avatar}
-          style={styles.avatar}
-        />
+        <Image source={{ uri: avatar }} style={styles.avatar} />
 
         {online && <View style={styles.statusDot} />}
       </View>
@@ -27,36 +25,31 @@ export default function ProfileCard({ name, avatar, online = true }: ProfileCard
 const styles = StyleSheet.create({
   card: {
     alignItems: "center",
-    padding: 15,
-    width: 200,
-    backgroundColor:"#ffffff",
-    borderRadius:15,
-    flex:0.2
+    width: 70,
   },
   avatarContainer: {
     position: "relative",
   },
   avatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 40,
+    width: 55,
+    height: 55,
+    borderRadius: 30,
   },
   statusDot: {
     position: "absolute",
-    right: -15,
-    top: -10,
-    width: 18,
-    height: 18,
-    borderRadius: 10,
-    backgroundColor: "#22c55e", // green
+    right: 2,
+    top: 2,
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    backgroundColor: "#4ade80",
     borderWidth: 3,
-    borderColor: "#ffffff", // white border separation
+    borderColor: "#fff",
   },
   name: {
-    marginTop: 10,
-    fontSize: 16,
+    marginTop: 8,
+    fontSize: 13,
     fontWeight: "600",
-    color: "#111010ff",
-    textAlign: "center",
+    color: "#000",
   },
 });

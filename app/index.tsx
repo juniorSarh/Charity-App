@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import ProfileCard from "../components/ProfileCard";
@@ -10,41 +11,51 @@ export default function Index() {
   return (
     <View style={styles.mainView}>
 
-      {/* TOP CARD */}
+      {/* TOP CARD: Profile Cards Horizontal Scroll */}
       <View style={styles.topCard}>
         <View style={styles.headerRow}>
-          <Ionicons name="chevron-back" size={26} />
+          <Ionicons name="chevron-back" size={26} color="#000" />
           <Text style={styles.headerTitle}>Chats</Text>
-
           <ProfileIconWithBadge
             avatar={require("../assets/avatars/avatar3.jpg")}
             count={6}
           />
         </View>
 
-        <View style={styles.profileRow}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.profileScroll}
+          contentContainerStyle={{ paddingRight: 20 }}
+        >
           <ProfileCard name="Dlozi" avatar={require("../assets/avatars/avatar1.jpg")} />
           <ProfileCard name="Security" avatar={require("../assets/avatars/avatar2.jpg")} />
           <ProfileCard name="Sabelo" avatar={require("../assets/avatars/avatar3.jpg")} />
           <ProfileCard name="Bongeka" avatar={require("../assets/avatars/avatar4.jpg")} />
-        </View>
+          <ProfileCard name="Melo" avatar={require("../assets/avatars/avatar5.jpg")} />
+          <ProfileCard name="Shantela" avatar={require("../assets/avatars/avatar6.jpg")} />
+          <ProfileCard name="Msizi" avatar={require("../assets/avatars/avatar7.jpg")} />
+        </ScrollView>
       </View>
 
-      {/* RECENT CHATS */}
+      {/* MIDDLE CARD: Recent Chats Scroll */}
       <View style={styles.middleCard}>
         <Text style={styles.sectionTitle}>Recent Chats</Text>
-
-        <ChatListItem name="Melo" message="Typing..." avatar={require("../assets/avatars/avatar5.jpg")} unread={6} />
-        <ChatListItem name="Shantela" message="Hello there!" avatar={require("../assets/avatars/avatar6.jpg")} unread={2} />
-        <ChatListItem name="Msizi" message="Yes, That is how it is done." avatar={require("../assets/avatars/avatar7.jpg")} />
-        <ChatListItem name="Ntombi" message="Typing..." avatar={require("../assets/avatars/avatar4.jpg")} unread={2} />
-        <ChatListItem name="Mluleki" message="ayyy lutho Khehla.." avatar={require("../assets/avatars/avatar3.jpg")} unread={1} />
-        <ChatListItem name="Scrum" message="The scrum meeting will start soon." avatar={require("../assets/avatars/avatar2.jpg")} />
-        <ChatListItem name="Dlozi" message="Typing..." avatar={require("../assets/avatars/avatar1.jpg")} unread={2} />
-       
+        <ScrollView
+          showsVerticalScrollIndicator={true}
+          contentContainerStyle={{ paddingBottom: 20 }}
+        >
+          <ChatListItem name="Melo" message="Typing..." avatar={require("../assets/avatars/avatar5.jpg")} unread={6} />
+          <ChatListItem name="Shantela" message="Hello there!" avatar={require("../assets/avatars/avatar6.jpg")} unread={2} />
+          <ChatListItem name="Msizi" message="Yes, That is how it is done." avatar={require("../assets/avatars/avatar7.jpg")} />
+          <ChatListItem name="Ntombi" message="Typing..." avatar={require("../assets/avatars/avatar4.jpg")} unread={2} />
+          <ChatListItem name="Mluleki" message="ayyy lutho Khehla.." avatar={require("../assets/avatars/avatar3.jpg")} unread={1} />
+          <ChatListItem name="Scrum" message="The scrum meeting will start soon." avatar={require("../assets/avatars/avatar2.jpg")} />
+          <ChatListItem name="Dlozi" message="Typing..." avatar={require("../assets/avatars/avatar1.jpg")} unread={2} />
+        </ScrollView>
       </View>
 
-      {/* GROUP CHAT */}
+      {/* BOTTOM CARD: Sticky Group Chat */}
       <View style={styles.bottomCard}>
         <Text style={styles.sectionTitle}>Group Chat</Text>
         <GroupChatCard />
@@ -59,13 +70,13 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 18,
     backgroundColor: "#0c0c0cff",
+    justifyContent: "space-between", // ensures bottom card sticks
   },
   topCard: {
     backgroundColor: "#E2F1EB",
     padding: 18,
     borderRadius: 35,
-    marginBottom: 5,
-    marginTop:5
+    marginBottom: 10,
   },
   headerRow: {
     flexDirection: "row",
@@ -76,9 +87,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "700",
   },
-  profileRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+  profileScroll: {
     marginTop: 15,
   },
   middleCard: {
@@ -86,7 +95,7 @@ const styles = StyleSheet.create({
     padding: 18,
     borderRadius: 35,
     flex: 1,
-    marginBottom: 5,
+    marginBottom: 10,
   },
   bottomCard: {
     backgroundColor: "#E2F1EB",
@@ -96,6 +105,6 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 17,
     fontWeight: "700",
-    marginBottom: 2,
+    marginBottom: 10,
   },
 });

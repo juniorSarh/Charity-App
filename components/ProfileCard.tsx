@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 70,
     backgroundColor:"#ffff",
-    borderRadius:15
+    borderRadius:15,
+    margin:2
   },
   avatarContainer: {
     position: "relative",

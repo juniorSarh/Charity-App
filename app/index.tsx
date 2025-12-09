@@ -1,89 +1,47 @@
-// screens/Index.tsx
 import { StyleSheet, Text, View } from "react-native";
-import ProfileCard from "@/components/ProfileCard";
-import ChatListItem from "@/components/ChatListItem";
-import GroupChatCard from "@/components/GroupChatCard";
 import { Ionicons } from "@expo/vector-icons";
-import ProfileIconWithBadge from "@/components/ProfileIconWithBadge";
+
+import ProfileCard from "../components/ProfileCard";
+import ChatListItem from "../components/ChatListItem";
+import GroupChatCard from "../components/GroupChatCard";
+import ProfileIconWithBadge from "../components/ProfileIconWithBadge";
 
 export default function Index() {
   return (
     <View style={styles.mainView}>
-      {/* TOP SECTION */}
+
+      {/* TOP CARD */}
       <View style={styles.topCard}>
         <View style={styles.headerRow}>
-          <Ionicons name="chevron-back" size={24} />
+          <Ionicons name="chevron-back" size={26} />
           <Text style={styles.headerTitle}>Chats</Text>
-         <ProfileIconWithBadge 
-            avatar="https://randomuser.me/api/portraits/men/14.jpg"
+
+          <ProfileIconWithBadge
+            avatar={require("../assets/avatars/avatar3.jpg")}
             count={6}
           />
-
         </View>
 
         <View style={styles.profileRow}>
-          <ProfileCard
-            name="Mira"
-            avatar="https://randomuser.me/api/portraits/women/21.jpg"
-          />
-          <ProfileCard
-            name="Phill"
-            avatar="https://randomuser.me/api/portraits/men/24.jpg"
-          />
-          <ProfileCard
-            name="Mike"
-            avatar="https://randomuser.me/api/portraits/men/25.jpg"
-          />
-          <ProfileCard
-            name="Kierra"
-            avatar="https://randomuser.me/api/portraits/women/23.jpg"
-          />
-          
+          <ProfileCard name="Dlozi" avatar={require("../assets/avatars/avatar1.jpg")} />
+          <ProfileCard name="Security" avatar={require("../assets/avatars/avatar2.jpg")} />
+          <ProfileCard name="Sabelo" avatar={require("../assets/avatars/avatar3.jpg")} />
+          <ProfileCard name="Bongeka" avatar={require("../assets/avatars/avatar4.jpg")} />
         </View>
       </View>
 
       {/* RECENT CHATS */}
       <View style={styles.middleCard}>
-        <Text style={styles.sectionTitle}>Recent Chat</Text>
+        <Text style={styles.sectionTitle}>Recent Chats</Text>
 
-        <ChatListItem
-          name="Phillip Geidt"
-          message="Phillip is typing..."
-          avatar="https://randomuser.me/api/portraits/men/44.jpg"
-          unread={6}
-        />
-
-        <ChatListItem
-          name="Kierra from Match"
-          message="Voice message"
-          avatar="https://randomuser.me/api/portraits/women/33.jpg"
-          unread={2}
-        />
-
-        <ChatListItem
-          name="Mike Smith"
-          message="Yes, put my name down..."
-          avatar="https://randomuser.me/api/portraits/men/28.jpg"
-        />
-
-        <ChatListItem
-          name="Stacey Neighbor"
-          message="Hi! Her mom already used it"
-          avatar="https://randomuser.me/api/portraits/women/29.jpg"
-        />
-         <ChatListItem
-          name="Mike Smith"
-          message="Yes, put my name down..."
-          avatar="https://randomuser.me/api/portraits/men/28.jpg"
-        />
-
-        <ChatListItem
-          name="Stacey Neighbor"
-          message="Hi! Her mom already used it"
-          avatar="https://randomuser.me/api/portraits/women/29.jpg"
-          unread={3}
-        />
-
+        <ChatListItem name="Melo" message="Typing..." avatar={require("../assets/avatars/avatar5.jpg")} unread={6} />
+        <ChatListItem name="Shantela" message="Hello there!" avatar={require("../assets/avatars/avatar6.jpg")} unread={2} />
+        <ChatListItem name="Msizi" message="Yes, That is how it is done." avatar={require("../assets/avatars/avatar7.jpg")} />
+        <ChatListItem name="Ntombi" message="Typing..." avatar={require("../assets/avatars/avatar4.jpg")} unread={2} />
+        <ChatListItem name="Mluleki" message="ayyy lutho Khehla.." avatar={require("../assets/avatars/avatar3.jpg")} unread={1} />
+        <ChatListItem name="Scrum" message="The scrum meeting will start soon." avatar={require("../assets/avatars/avatar2.jpg")} />
+        <ChatListItem name="Dlozi" message="Typing..." avatar={require("../assets/avatars/avatar1.jpg")} unread={2} />
+       
       </View>
 
       {/* GROUP CHAT */}
@@ -91,6 +49,7 @@ export default function Index() {
         <Text style={styles.sectionTitle}>Group Chat</Text>
         <GroupChatCard />
       </View>
+
     </View>
   );
 }
@@ -99,60 +58,44 @@ const styles = StyleSheet.create({
   mainView: {
     flex: 1,
     padding: 18,
-    backgroundColor: "black",
-  
+    backgroundColor: "#0c0c0cff",
   },
-
   topCard: {
     backgroundColor: "#E2F1EB",
-    borderRadius: 35,
     padding: 18,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    margin: 5,
+    borderRadius: 35,
+    marginBottom: 5,
+    marginTop:5
   },
-
   headerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
   },
-
   headerTitle: {
     fontSize: 20,
     fontWeight: "700",
   },
-
   profileRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 15,
   },
-
   middleCard: {
     backgroundColor: "#E2F1EB",
-    borderRadius: 35,
     padding: 18,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    marginBottom: 5,
+    borderRadius: 35,
     flex: 1,
+    marginBottom: 5,
   },
-
   bottomCard: {
     backgroundColor: "#E2F1EB",
-    borderRadius: 35,
     padding: 18,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
+    borderRadius: 35,
   },
-
   sectionTitle: {
     fontSize: 17,
     fontWeight: "700",
-    marginBottom: 10,
+    marginBottom: 2,
   },
 });

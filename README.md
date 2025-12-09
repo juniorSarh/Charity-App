@@ -1,50 +1,186 @@
-# Welcome to your Expo app 👋
+<img src="https://socialify.git.ci/juniorSarh/Charity-App/image?language=1&owner=1&name=1&stargazers=1&theme=Light" alt="Charity-App" width="640" height="320" />
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+🟢 Charity Chat App UI (React Native)
 
-## Get started
+A React Native chat app UI project demonstrating profile cards, recent chats, and group chat components with local avatars. Designed for mobile devices using React Native and Expo.
 
-1. Install dependencies
+Table of Contents
 
-   ```bash
-   npm install
-   ```
+Demo
 
-2. Start the app
+Features
 
-   ```bash
-   npx expo start
-   ```
+Project Structure
 
-In the output, you'll find options to open the app in a
+Installation
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Usage
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Components
 
-## Get a fresh project
+Assets
 
-When you're ready, run:
+Customization
 
-```bash
-npm run reset-project
-```
+License
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Demo
 
-## Learn more
+This project provides:
 
-To learn more about developing your project with Expo, look at the following resources:
+A top horizontal row of profile cards with avatars and online status
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+A recent chats list with avatars, messages, unread badges
 
-## Join the community
+A group chat card with overlapping avatars
 
-Join our community of developers creating universal apps.
+Profile icon with notification badge at top-right
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Fully responsive column layout for mobile screens
+
+Features
+
+Profile cards with local avatars
+
+Online status indicator (green dot)
+
+Chat list items with unread message badge
+
+Group chat card with overlapping avatars
+
+Fully customizable using props for names, avatars, and status
+
+Clean UI with rounded cards and responsive spacing
+
+Project Structure
+project/
+│
+├─ assets/
+│   └─ avatars/
+│       ├─ avatar1.jpg
+│       ├─ avatar2.jpg
+│       ├─ avatar3.jpg
+│       ├─ avatar4.jpg
+│       ├─ avatar5.jpg
+│       ├─ avatar6.jpg
+│       └─ avatar7.jpg
+│
+├─ components/
+│   ├─ ProfileCard.tsx
+│   ├─ ChatListItem.tsx
+│   ├─ GroupChatCard.tsx
+│   └─ ProfileIconWithBadge.tsx
+│
+├─ screens/
+│   └─ Index.tsx
+│
+├─ App.tsx
+└─ README.md
+
+Installation
+
+Clone the repository:
+
+git clone https://github.com/juniorSarh/Charity-App
+cd Charity-App
+
+
+Install dependencies (Expo recommended):
+
+npm install
+# or
+yarn install
+
+
+Start the project:
+
+expo start
+
+
+Open on Android/iOS emulator or physical device using the Expo Go app.
+
+Usage
+
+Import and use the Index screen as your main entry point:
+
+import Index from './screens/Index';
+
+export default function App() {
+  return <Index />;
+}
+
+
+ProfileCard usage:
+
+<ProfileCard name="John" avatar={require('../assets/avatars/avatar1.jpg')} online={true} />
+
+
+ChatListItem usage:
+
+<ChatListItem
+  name="Sarah"
+  message="Hello!"
+  avatar={require('../assets/avatars/avatar2.jpg')}
+  unread={2}
+/>
+
+
+GroupChatCard usage:
+
+<GroupChatCard />
+
+
+ProfileIconWithBadge usage:
+
+<ProfileIconWithBadge avatar={require('../assets/avatars/avatar3.jpg')} count={5} />
+
+Components
+ProfileCard
+
+Avatar with online status
+
+Name label
+
+Props: name, avatar, online
+
+ChatListItem
+
+Avatar, name, message, timestamp
+
+Unread message badge
+
+Props: name, message, avatar, time?, unread?
+
+GroupChatCard
+
+Overlapping avatars
+
+Group name, last message, timestamp
+
+ProfileIconWithBadge
+
+Top-right avatar icon
+
+Notification badge for unread count
+
+Assets
+
+All avatars are local JPG images stored in assets/avatars/:
+
+avatar1.jpg → avatar7.jpg
+
+Tip: Use consistent dimensions (e.g., 55x55px) for profile pictures for best display.
+
+Customization
+
+Change avatar images by replacing avatar1.jpg → avatar7.jpg
+
+Modify names or messages in Index.tsx
+
+Adjust colors in StyleSheet for branding
+
+Expand components for additional features like typing indicator, reactions, or dark mode
+
+License
+
+This project is open-source and free to use under the MIT License.

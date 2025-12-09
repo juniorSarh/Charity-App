@@ -1,10 +1,9 @@
-// components/ProfileCard.tsx
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
 interface Props {
   name: string;
-  avatar: string;
+  avatar: any; // local require()
   online?: boolean;
 }
 
@@ -12,11 +11,9 @@ export default function ProfileCard({ name, avatar, online = true }: Props) {
   return (
     <View style={styles.card}>
       <View style={styles.avatarContainer}>
-        <Image source={{ uri: avatar }} style={styles.avatar} />
-
+        <Image source={avatar} style={styles.avatar} />
         {online && <View style={styles.statusDot} />}
       </View>
-
       <Text style={styles.name}>{name}</Text>
     </View>
   );
@@ -26,6 +23,8 @@ const styles = StyleSheet.create({
   card: {
     alignItems: "center",
     width: 70,
+    backgroundColor:"#ffff",
+    borderRadius:15
   },
   avatarContainer: {
     position: "relative",

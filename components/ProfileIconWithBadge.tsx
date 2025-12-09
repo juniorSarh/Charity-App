@@ -1,17 +1,15 @@
-// components/ProfileIconWithBadge.tsx
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
 interface Props {
-  avatar: string;
+  avatar: any; // local require()
   count?: number;
 }
 
 export default function ProfileIconWithBadge({ avatar, count = 0 }: Props) {
   return (
     <View style={styles.container}>
-      <Image source={{ uri: avatar }} style={styles.avatar} />
-
+      <Image source={avatar} style={styles.avatar} />
       {count > 0 && (
         <View style={styles.badge}>
           <Text style={styles.badgeText}>{count}</Text>
@@ -32,8 +30,8 @@ const styles = StyleSheet.create({
   },
   badge: {
     position: "absolute",
-    right: -2,
-    top: -2,
+    right: -4,
+    top: -4,
     backgroundColor: "#e5f044",
     width: 20,
     height: 20,
@@ -44,6 +42,5 @@ const styles = StyleSheet.create({
   badgeText: {
     fontSize: 12,
     fontWeight: "700",
-    color: "#000",
   },
 });

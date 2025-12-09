@@ -1,4 +1,3 @@
-// components/GroupChatCard.tsx
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
@@ -7,21 +6,13 @@ export default function GroupChatCard() {
     <View style={styles.card}>
       <View style={styles.row}>
         <View style={styles.avatarStack}>
-          <Image
-            style={styles.avatar}
-            source={{ uri: "https://randomuser.me/api/portraits/men/15.jpg" }}
-          />
-          <Image
-            style={[styles.avatar, styles.avatarOverlap]}
-            source={{ uri: "https://randomuser.me/api/portraits/women/11.jpg" }}
-          />
+          <Image style={styles.avatar} source={require("../assets/avatars/avatar1.jpg")} />
+          <Image style={[styles.avatar, styles.avatarOverlap]} source={require("../assets/avatars/avatar2.jpg")} />
         </View>
-
         <View style={{ flex: 1 }}>
-          <Text style={styles.name}>Kevin’s BP</Text>
-          <Text style={styles.message}>Kate and Ann are typing...</Text>
+          <Text style={styles.name}>CodeTribe PMB</Text>
+          <Text style={styles.message}>Ntombi and Scrum are typing...</Text>
         </View>
-
         <Text style={styles.time}>12:32</Text>
       </View>
     </View>
@@ -32,8 +23,8 @@ const styles = StyleSheet.create({
   card: {
     padding: 10,
     borderRadius: 25,
-    backgroundColor: "#fff",
-    marginTop: 10,
+    backgroundColor: "#E2F1EB",
+    marginTop: 5,
   },
   row: {
     flexDirection: "row",

@@ -1,14 +1,12 @@
-// components/ChatListItem.tsx
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
 interface Props {
   name: string;
   message: string;
-  avatar: string;
+  avatar: any; // local require()
   time?: string;
   unread?: number;
-  color?: string;
 }
 
 export default function ChatListItem({
@@ -17,17 +15,14 @@ export default function ChatListItem({
   avatar,
   time = "11:34",
   unread = 0,
-  color = "#22c55e",
 }: Props) {
   return (
     <View style={styles.row}>
-      <Image source={{ uri: avatar }} style={[styles.avatar, { backgroundColor: color }]} />
-
+      <Image source={avatar} style={styles.avatar} />
       <View style={styles.center}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.message}>{message}</Text>
       </View>
-
       <View style={styles.right}>
         <Text style={styles.time}>{time}</Text>
         {unread > 0 && (
@@ -60,14 +55,14 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   message: {
-    color: "#555",
+    color: "#666",
     marginTop: 2,
   },
   right: {
     alignItems: "flex-end",
   },
   time: {
-    color: "#555",
+    color: "#666",
     fontSize: 13,
   },
   badge: {

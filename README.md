@@ -52,12 +52,10 @@ yarn install
 
 ## Start the project:
 ```
-expo start
+npm start
 
 ```
 
 
 
-License
 
-This project is open-source and free to use under the MIT License.

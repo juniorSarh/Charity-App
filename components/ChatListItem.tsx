@@ -70,11 +70,14 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 12,
+    borderWidth: 2,
+    borderColor: "#181717",
     backgroundColor: "#e5f044",
     justifyContent: "center",
     alignItems: "center",
   },
   badgeText: {
     fontWeight: "700",
+      color: "#000",
   },
 });
